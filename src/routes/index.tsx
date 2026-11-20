@@ -291,60 +291,74 @@ function Home() {
       />
 
       {/* Welcome */}
-      <section className="mx-auto grid max-w-7xl items-center gap-14 px-5 py-24 lg:grid-cols-2 lg:px-8 lg:py-32">
-        <Reveal variant="left" className="relative">
-          <Reveal variant="wipe">
+      <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 sm:gap-14 sm:py-24 lg:grid-cols-2 lg:px-8 lg:py-32">
+        {/* Welcome Images */}
+        <div className="relative w-full">
+          <div className="relative min-h-[440px] w-full sm:min-h-[560px]">
+            {/* Main Lobby Image */}
             <img
               src={IMG.lobby}
               alt="Grand reception lobby"
-              loading="lazy"
+              loading="eager"
               width={1280}
               height={896}
-              className="aspect-[4/5] w-4/5 rounded-2xl object-cover shadow-lift"
+              className="block aspect-[4/5] w-[88%] rounded-2xl object-cover shadow-lift sm:w-4/5"
             />
-          </Reveal>
-          <motion.img
-            initial={{ opacity: 0, y: 80, rotate: 8 }}
-            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 1.1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            src={IMG.lounge}
-            alt="Lounge interior"
-            loading="lazy"
-            width={1024}
-            height={1280}
-            className="absolute right-0 -bottom-10 aspect-[3/4] w-2/5 rounded-2xl border-4 border-background object-cover shadow-lift"
-          />
-          <div className="animate-float absolute top-8 -right-2 hidden rounded-2xl bg-navy p-5 text-center shadow-lift md:block lg:right-6">
-            <p className="font-display text-4xl text-gold">25+</p>
-            <p className="eyebrow !text-[0.6rem] text-navy-foreground/70">Years of care</p>
+
+            {/* Lounge Image */}
+            <img
+              src={IMG.lounge}
+              alt="Luxury hotel lounge interior"
+              loading="eager"
+              width={1024}
+              height={1280}
+              className="absolute bottom-0 right-0 z-10 block aspect-[3/4] w-[42%] rounded-2xl border-4 border-background object-cover shadow-lift sm:w-2/5"
+            />
+
+            {/* Years Badge */}
+            <div className="animate-float absolute right-0 top-8 z-20 hidden rounded-2xl bg-navy p-5 text-center shadow-lift md:block lg:right-6">
+              <p className="font-display text-4xl text-gold">25+</p>
+              <p className="eyebrow !text-[0.6rem] text-navy-foreground/70">
+                Years of care
+              </p>
+            </div>
           </div>
-        </Reveal>
-        <div>
+        </div>
+
+        {/* Welcome Content */}
+        <div className="min-w-0">
           <SectionTitle
             align="left"
             eyebrow="Welcome"
             title={
               <>
-                A royal welcome, <em className="text-gold">every single stay</em>
+                A royal welcome,{" "}
+                <em className="text-gold">every single stay</em>
               </>
             }
             subtitle="Hotel Meri & Residency blends heritage elegance with modern comfort. From the moment you arrive, our team looks after every detail — so you can simply relax."
           />
-          <Reveal delay={0.15} className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8">
+
+          <Reveal
+            delay={0.15}
+            className="mt-10 grid grid-cols-3 gap-3 border-t border-border pt-8 sm:gap-6"
+          >
             {[
               [24, "+", "Elegant rooms"],
               [18000, "+", "Happy guests"],
               [4.8, "", "Guest rating"],
             ].map(([n, s, l]) => (
               <div key={l as string}>
-                <p className="font-display text-4xl text-navy">
+                <p className="font-display text-3xl text-navy sm:text-4xl">
                   {n === 4.8 ? "4.8" : <Counter to={n as number} suffix={s as string} />}
                 </p>
-                <p className="mt-1 text-xs tracking-wider text-muted-foreground uppercase">{l}</p>
+                <p className="mt-1 text-[10px] tracking-wider text-muted-foreground uppercase sm:text-xs">
+                  {l}
+                </p>
               </div>
             ))}
           </Reveal>
+
           <Reveal delay={0.25} className="mt-10">
             <Button asChild variant="navy" size="xl">
               <Link to="/about">
@@ -354,6 +368,7 @@ function Home() {
           </Reveal>
         </div>
       </section>
+
 
       {/* Rooms */}
       <section className="bg-secondary/60 py-24 lg:py-32">
