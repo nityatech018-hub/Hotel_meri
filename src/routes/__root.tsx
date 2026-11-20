@@ -163,14 +163,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "icon",
         type: "image/png",
-        href: "/favicon.png",
+        href: "/favicon.png?v=4",
       },
 
       // Apple Touch Icon
       {
         rel: "apple-touch-icon",
         sizes: "256x256",
-        href: "/favicon.png?v=3",
+        href: "/favicon.png?v=4",
       },
 
       // Google Fonts
