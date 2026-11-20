@@ -1,0 +1,6 @@
+[
+  {"capability":"code","source":"motion-enhanced-experience-main.zip","outcome":"migrate","status":"verified","next_action":"none"},
+  {"capability":"records","source":"browser localStorage demo store","outcome":"no server data to move","status":"verified","next_action":"none"},
+  {"capability":"auth","source":"demo sign-in in browser","outcome":"kept as demo","status":"verified","next_action":"none"},
+  {"capability":"assets","source":"hotel logo CDN asset","outcome":"re-uploaded to this project","status":"verified","next_action":"none"}
+]
